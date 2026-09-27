@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Match Result | AI Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="logo">
+            AI Resume Analyzer
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+
+    </header>
+
+
+    <main class="result-page">
+
+        <!-- HEADER -->
+
+        <div class="result-header">
+
+            <p class="small-heading">
+                JOB MATCH ANALYSIS
+            </p>
+
+            <h1>
+                Resume <span>Job Match</span>
+            </h1>
+
+            <p>
+                See how well your resume matches the selected job.
+            </p>
+
+        </div>
+
+
+        <!-- MATCH SCORE -->
+
+        <section class="ats-card">
+
+            <div>
+
+                <h2>Job Match Percentage</h2>
+
+                <p>
+                    This percentage represents the skills from the
+                    job description that were found in your resume.
+                </p>
+
+            </div>
+
+
+            <div class="score-circle">
+
+                <strong>
+                    {{ analysis.match_percentage }}
+                </strong>
+
+                <span>%</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS -->
+
+        <div class="analysis-grid">
+
+
+            <!-- MATCHING SKILLS -->
+
+            <section class="analysis-card">
+
+                <div class="card-title">
+
+                    <span class="card-icon">
+                        ✓
+                    </span>
+
+                    <h2>Matching Skills</h2>
+
+                </div>
+
+
+                <div class="skills-list">
+
+                    {% for skill in analysis.matching_skills %}
+
+                        <span class="skill">
+                            {{ skill }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </section>
+
+
+            <!-- MISSING SKILLS -->
+
+            <section class="analysis-card">
+
+                <div class="card-title">
+
+                    <span class="card-icon warning">
+                        !
+                    </span>
+
+                    <h2>Missing Job Skills</h2>
+
+                </div>
+
+
+                <div class="skills-list">
+
+                    {% for skill in analysis.missing_skills %}
+
+                        <span class="missing-skill">
+                            {{ skill }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- RECOMMENDATION -->
+
+        <section class="analysis-card suggestions-card">
+
+            <div class="card-title">
+
+                <span class="card-icon">
+                    💡
+                </span>
+
+                <h2>What You Can Improve</h2>
+
+            </div>
+
+
+            {% if analysis.missing_skills %}
+
+                <p>
+                    Consider adding relevant skills such as:
+                </p>
+
+                <div class="skills-list">
+
+                    {% for skill in analysis.missing_skills %}
+
+                        <span class="missing-skill">
+                            {{ skill }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <p>
+                    Your resume contains all the detected skills
+                    from this job description.
+                </p>
+
+            {% endif %}
+
+        </section>
+
+
+        <!-- ACTION -->
+
+        <div class="result-actions">
+
+            <a href="/" class="primary-btn">
+                Analyze Another Resume
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 AI Resume Analyzer. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

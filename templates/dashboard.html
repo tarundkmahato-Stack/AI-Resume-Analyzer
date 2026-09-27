@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | AI Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="dashboard-nav">
+
+        <div class="dashboard-logo">
+            🤖 AI Resume Analyzer
+        </div>
+
+        <div class="dashboard-nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout" class="dashboard-logout">
+                Logout
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-main">
+
+        <!-- Welcome Section -->
+        <section class="dashboard-welcome">
+
+            <div>
+                <p class="welcome-small">Dashboard</p>
+
+                <h1>
+                    Welcome, {{ user_name }} 👋
+                </h1>
+
+                <p>
+                    Analyze your resume and improve your career opportunities
+                    with AI-powered insights.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Dashboard Cards -->
+        <section class="dashboard-grid">
+
+
+            <!-- Analyze Resume -->
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    📄
+                </div>
+
+                <h2>Analyze Resume</h2>
+
+                <p>
+                    Upload your resume and get detailed AI-powered analysis.
+                </p>
+
+                <a href="/" class="dashboard-button">
+                    Analyze Resume →
+                </a>
+
+            </div>
+
+
+            <!-- ATS Score -->
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    📊
+                </div>
+
+                <h2>ATS Score</h2>
+
+                <p>
+                    Check how well your resume performs against ATS systems.
+                </p>
+
+                <a href="/" class="dashboard-button">
+                    Check Score →
+                </a>
+
+            </div>
+
+
+            <!-- History -->
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    📜
+                </div>
+
+                <h2>Analysis History</h2>
+
+                <p>
+                    View your previous resume analysis reports.
+                </p>
+
+                <a href="history" class="dashboard-button">
+                    View History →
+                </a>
+
+            </div>
+
+
+            <!-- Profile -->
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    👤
+                </div>
+
+                <h2>My Profile</h2>
+
+                <p>
+                    Manage your personal account information.
+                </p>
+
+                <a href="/profile" class="dashboard-button">
+                    View Profile →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quick Info -->
+        <section class="dashboard-info">
+
+            <div>
+                <span>🚀</span>
+                <strong>AI-Powered Analysis</strong>
+                <p>
+                    Get intelligent insights to improve your resume.
+                </p>
+            </div>
+
+            <div>
+                <span>🎯</span>
+                <strong>Job Matching</strong>
+                <p>
+                    Compare your resume with job descriptions.
+                </p>
+            </div>
+
+            <div>
+                <span>💡</span>
+                <strong>Career Improvement</strong>
+                <p>
+                    Discover missing skills and improvement areas.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analysis History | AI Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="dashboard-nav">
+
+        <div class="dashboard-logo">
+            🤖 AI Resume Analyzer
+        </div>
+
+        <div class="dashboard-nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout" class="dashboard-logout">
+                Logout
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- History Page -->
+    <main class="history-main">
+
+        <div class="history-header">
+
+            <p>Dashboard</p>
+
+            <h1>Analysis History</h1>
+
+            <span>
+                View your previous resume analysis reports.
+            </span>
+
+        </div>
+
+
+        <div class="history-card">
+
+            {% if history %}
+
+                <div class="history-table">
+
+                    <div class="history-row history-heading">
+                        <strong>Resume</strong>
+                        <strong>ATS Score</strong>
+                        <strong>Date</strong>
+                    </div>
+
+
+                    {% for item in history %}
+
+                    <div class="history-row">
+
+                        <span>
+                            📄 {{ item[0] }}
+                        </span>
+
+                        <span class="history-score">
+                            {{ item[1] }}%
+                        </span>
+
+                        <span>
+                            {{ item[2] }}
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% else %}
+
+                <div class="history-empty">
+
+                    <div>📜</div>
+
+                    <h2>No Analysis History</h2>
+
+                    <p>
+                        Upload your resume to create your first analysis report.
+                    </p>
+
+                    <a href="/" class="dashboard-button">
+                        Analyze Resume →
+                    </a>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <a href="/dashboard" class="history-back">
+            ← Back to Dashboard
+        </a>
+
+    </main>
+
+</body>
+
+</html>
